@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
-
-
+import { backendUrl } from "../App";
+ 
 
 const Captionlogout = () => {
       const navigate= useNavigate();
@@ -10,7 +10,7 @@ const Captionlogout = () => {
         
              const captionToken = localStorage.getItem('captionToken');
                    //   console.log(captionToken)
-                      const responce = await axios.get('http://localhost:5000/api/caption/logout',{
+                      const responce = await axios.get(backendUrl+'/api/caption/logout',{
                          headers:{
                              Authorization: `Bearer ${captionToken}`
                          }

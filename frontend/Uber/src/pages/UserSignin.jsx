@@ -4,7 +4,8 @@ import axios from 'axios'
  import { useContext } from "react";
  import { UserDataContext } from "../context/UserContext";
  import { useNavigate } from "react-router-dom";
-
+ 
+ import { backendUrl } from "../App";
 const UserSignin = () => {
   const [firstname,setfirstname]=useState('')
   const [lastname,setlastname]=useState('')
@@ -22,7 +23,7 @@ const UserSignin = () => {
           password:password,
       }
       // console.log(userData)
-       const responce = await axios.post('http://localhost:5000/api/user/register',userData)
+       const responce = await axios.post(backendUrl+'/api/user/register',userData)
      console.log(responce)
         if(responce.status===201 && responce.data.sucess){
           localStorage.setItem('user',JSON.stringify(responce.data.savedUser))

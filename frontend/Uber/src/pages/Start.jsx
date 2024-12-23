@@ -10,10 +10,11 @@ import LookingforCaption from "../components/LookingforCaption";
 import WatingForDriver from "../components/WatingForDriver";
 // import { sendMessageToSocketId } from "../../../../backend/Socket/socket";
 import { UserDataContext } from "../context/UserContext";
- 
+import { backendUrl } from "../App";
 import { SocketContext } from "../context/Socketcontext";
 import { useNavigate } from "react-router-dom";
 import LiveTracking from "../components/Livetracking";
+ 
 const Start = () => {
 
      const [pickup, setpickup] = useState([]);
@@ -66,7 +67,7 @@ const Start = () => {
  
       const createRide = async()=>{
          try {
-           const responce = await axios.post('http://localhost:5000/api/ride/getride',{
+           const responce = await axios.post(backendUrl+'/api/ride/getride',{
             vehicalType:vehicalType,
             pickup:pickinput,
             destination:destinationinput,
@@ -89,7 +90,7 @@ const Start = () => {
       setvehicalpanel(true),
       setpannelOpen(false)
        try {
-         const responce = await axios.get('http://localhost:5000/api/ride/genfare',{
+         const responce = await axios.get(backendUrl+'/api/ride/genfare',{
           params:{pickinput:pickinput,destinationinput:destinationinput},
              headers:{
                Authorization:`bearer ${localStorage.getItem('token')}`
@@ -105,7 +106,7 @@ const Start = () => {
 
      const pickupchangehandler = async (e)=>{
       setpickinput(e.target.value)
-      const responce = await axios.get('http://localhost:5000/api/map/get-suggestions',{
+      const responce = await axios.get(backendUrl +'/api/map/get-suggestions',{
                
         params:{input:e.target.value},
          headers:{
@@ -123,7 +124,7 @@ const Start = () => {
      // console.log(WaitingDriver)
      const destinatonchangehandler = async (e)=>{
       setdestinationinput(e.target.value)
-      const responce = await axios.get('http://localhost:5000/api/map/get-suggestions',{
+      const responce = await axios.get(backendUrl+'/api/map/get-suggestions',{
                
         params:{input:e.target.value},
          headers:{

@@ -2,14 +2,16 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CaptionDataContext } from "../context/captionContext";
-
  
-
+ 
+ 
+import { backendUrl } from "../App";
 const Captionlogin = () => {
     const [email,setemail]=useState('');
     const [password,setpassword]=useState('');
     const { createdCaption, setcaption } = useContext(CaptionDataContext);
     const navigate = useNavigate();
+    console.log(backendUrl)
     const submithandler =  async (e)=>{
          e.preventDefault()
          const caption =  {
@@ -17,7 +19,7 @@ const Captionlogin = () => {
             password:password,
         }
 
-        const responce= await  axios.post('http://localhost:5000/api/caption/login', caption)
+        const responce= await  axios.post( backendUrl + "/api/caption/login", caption)
         console.log(responce);
         if(responce.status==201){
           setcaption(responce.data.caption);

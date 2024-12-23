@@ -12,8 +12,9 @@ import CaptionProtect from "./pages/CaptionProtect";
 import Captionlogout from "./pages/Captionlogout";
 import Riding from "./pages/Riding";
 import CaptionRiding from "./pages/CaptionRiding";
-
+export  const backendUrl =  import.meta.env.VITE_BACKENDURL
 const App = () => {
+
   return (
     <div>
       <Routes>
@@ -21,23 +22,23 @@ const App = () => {
           path="/start"
           element={
             <UserProtect>
-              <Start />
+              <Start backendUrl={backendUrl} />
             </UserProtect>
           }
         />
 
         <Route path="/" element={<Home />} />
-        <Route path="/caption-signin" element={<CaptionSignUp />} />
-        <Route path="/caption-login" element={<Captionlogin />} />
+        <Route path="/caption-signin" element={<CaptionSignUp backendUrl={backendUrl } />} />
+        <Route path="/caption-login" element={<Captionlogin backendUrl={backendUrl}/>} />
         <Route path="/riding" element={<Riding/>} />
-        <Route path="/captionriding" element={<CaptionRiding/>} />
-        <Route path="/signin" element={<UserSignin />} />
+        <Route path="/captionriding" element={<CaptionRiding backendUrl={backendUrl}/>} />
+        <Route path="/signin" element={<UserSignin backendUrl={backendUrl} />} />
         <Route path="/login" element={<Userlogin />} />
         <Route
           path="/captionstart"
           element={
             <CaptionProtect>
-              <CaptionStart />
+              <CaptionStart backendUrl={backendUrl} />
             </CaptionProtect>
           }
         />
@@ -45,7 +46,7 @@ const App = () => {
           path="/userlogout"
           element={
             <UserProtect>
-              <UserLogout />
+              <UserLogout backendUrl={backendUrl}/>
             </UserProtect>
           }
         />
@@ -53,7 +54,7 @@ const App = () => {
           path="/captionlogout"
           element={
             <CaptionProtect>
-              <Captionlogout />
+              <Captionlogout backendUrl={backendUrl} />
             </CaptionProtect>
           }
         />

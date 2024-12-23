@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { backendUrl } from "../App";
  
 
 export const UserLogout = () => {
@@ -10,7 +10,7 @@ const token= localStorage.getItem('token');
 
  const logOut =async()=>{
     try {
-         const responce = await axios.get('http://localhost:5000/api/user/logout',{
+         const responce = await axios.get(backendUrl+'/api/user/logout',{
             headers:{
                 Authorization: `Bearer ${token}`
             }

@@ -1,13 +1,13 @@
 import axios from "axios"
 import { Link, useNavigate} from "react-router-dom"
 
- 
+ import {backendUrl}  from '../App'
 
 const FinishRide = (props) => {
    const navigate = useNavigate()
    console.log(props.rideData._id)
    const EndRide= async()=>{
-       const responce = await axios.post('http://localhost:5000/api/ride/end-ride',{rideId:props.rideData._id},
+       const responce = await axios.post(backendUrl+"/api/ride/end-ride",{rideId:props.rideData._id},
       { headers:{
         Authorization:`bearer ${localStorage.getItem('captionToken')}`
       }}

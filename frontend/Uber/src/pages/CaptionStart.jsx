@@ -10,8 +10,7 @@ import { SocketContext } from "../context/Socketcontext"
 import axios from 'axios'
 import LiveTracking from "../components/Livetracking"
  
- 
-
+import { backendUrl } from "../App";
 
 const CaptionStart = () => {
 
@@ -37,7 +36,7 @@ const CaptionStart = () => {
 
    const confirmRide =  async()=>{
      
-     const responce = axios.post('http://localhost:5000/api/ride/confirmride',{
+     const responce = axios.post(backendUrl+'/api/ride/confirmride',{
       rideId:ride._id,
      },{
       headers:{

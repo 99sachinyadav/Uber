@@ -3,7 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { UserDataContext } from "../context/UserContext";
-
+ 
+import { backendUrl } from "../App";
 const Userlogin = () => {
     const [email,setemail]=useState('');
     const [password,setpassword]=useState('');
@@ -16,7 +17,7 @@ const Userlogin = () => {
         email:email,
         password:password,
        }
-        const responce = await axios.post('http://localhost:5000/api/user/login',userData)
+        const responce = await axios.post(backendUrl+'/api/user/login',userData)
           console.log(responce)
           
           if(responce.status===200){

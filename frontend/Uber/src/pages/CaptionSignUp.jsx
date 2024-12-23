@@ -2,8 +2,9 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { CaptionDataContext } from "../context/captionContext";
+ 
 
-
+import { backendUrl } from "../App";
 
 // "firstname":"test10",
 // "lastname":"testlast",
@@ -44,7 +45,7 @@ const CaptionSignUp = () => {
            vehicalType:vehicalType,
        }
    //console.log(captiondata)
-       const responce = await axios.post('http://localhost:5000/api/caption/register',captiondata)
+       const responce = await axios.post(backendUrl+"/api/caption/register",captiondata)
  
        console.log(responce);
        if(responce.status===201 && responce.data.sucess){

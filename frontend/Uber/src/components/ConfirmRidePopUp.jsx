@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 
-
+import {backendUrl} from "../App"
 
 
 const ConfirmRidePopUp = (props) => {
@@ -10,12 +10,12 @@ const ConfirmRidePopUp = (props) => {
      const navigate= useNavigate();
     // console.log(props.ride?._id,otp)
 
-
+    
 
       const submithandler = async(e)=>{
          e.preventDefault()
          console.log(props.ride?._id,otp)
-         const responce = await axios.get('http://localhost:5000/api/ride/start-ride',{
+         const responce = await axios.get( backendUrl + "/api/ride/start-ride",{
            params:{rideId:props.ride._id,otp:otp},
            headers:{
              Authorization:`bearer ${localStorage.getItem('captionToken')}`
