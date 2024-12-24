@@ -12,7 +12,7 @@ const CaptionContext = ({ children }) => {
       capacity: "",
       color: "",
       plate: "",
-      vehicalType: "",
+      vehicalType: "",  
     },
   });
  

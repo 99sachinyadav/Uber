@@ -12,7 +12,8 @@ import CaptionProtect from "./pages/CaptionProtect";
 import Captionlogout from "./pages/Captionlogout";
 import Riding from "./pages/Riding";
 import CaptionRiding from "./pages/CaptionRiding";
-export  const backendUrl =  "https://uber-backend-5ype.onrender.com"
+export  const backendUrl =  import.meta.env.VITE_BACKENDURL
+// "https://uber-backend-5ype.onrender.com"
 const App = () => {
 
   return (
