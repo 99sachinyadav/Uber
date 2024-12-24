@@ -13,7 +13,7 @@ import http from 'http'
  const app= express();
  const server = http.createServer(app);
  initializeSocket(server);
- const PORT=process.env.PORT
+ const PORT=process.env.PORT||4000
  app.use(cors())
  app.use(express.json());
  app.use(express.urlencoded({extended:true}))
