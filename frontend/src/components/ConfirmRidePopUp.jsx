@@ -15,7 +15,7 @@ const ConfirmRidePopUp = (props) => {
       const submithandler = async(e)=>{
          e.preventDefault()
          console.log(props.ride?._id,otp)
-         const responce = await axios.get( backendUrl + "/api/ride/start-ride",{
+         const responce = await axios.get(backendUrl+"/api/ride/start-ride",{
            params:{rideId:props.ride._id,otp:otp},
            headers:{
              Authorization:`bearer ${localStorage.getItem('captionToken')}`

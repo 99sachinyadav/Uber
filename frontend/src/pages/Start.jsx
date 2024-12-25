@@ -52,7 +52,7 @@ const Start = () => {
   
   
   socket.on('ride-confirmed', ride=>{
-   // console.log(ride)
+    console.log(ride)
     setmyride(ride)
      setWaitingDriver(true)
      setLookingCaption(false)
@@ -67,7 +67,7 @@ const Start = () => {
  
       const createRide = async()=>{
          try {
-           const responce = await axios.post(backendUrl+'/api/ride/getride',{
+           const responce = await axios.post(backendUrl+"/api/ride/getride",{
             vehicalType:vehicalType,
             pickup:pickinput,
             destination:destinationinput,
@@ -76,7 +76,7 @@ const Start = () => {
                 Authorization:`bearer ${localStorage.getItem('token')}`
              }
            }) 
-          // console.log(responce)
+           console.log(responce)
          } catch (error) {
           console.log(error)
          }
@@ -90,7 +90,7 @@ const Start = () => {
       setvehicalpanel(true),
       setpannelOpen(false)
        try {
-         const responce = await axios.get(backendUrl+'/api/ride/genfare',{
+         const responce = await axios.get(backendUrl+"/api/ride/genfare",{
           params:{pickinput:pickinput,destinationinput:destinationinput},
              headers:{
                Authorization:`bearer ${localStorage.getItem('token')}`
@@ -106,7 +106,7 @@ const Start = () => {
 
      const pickupchangehandler = async (e)=>{
       setpickinput(e.target.value)
-      const responce = await axios.get(backendUrl +'/api/map/get-suggestions',{
+      const responce = await axios.get(backendUrl+"/api/map/get-suggestions",{
                
         params:{input:e.target.value},
          headers:{
@@ -114,7 +114,7 @@ const Start = () => {
          }
         })
          
-        //console.log(responce.data.responce)
+        console.log(responce.data.responce)
         if(responce.status===200 && responce.data.responce.length>0){
          setpickup(responce.data.responce)
         }
@@ -124,7 +124,7 @@ const Start = () => {
      // console.log(WaitingDriver)
      const destinatonchangehandler = async (e)=>{
       setdestinationinput(e.target.value)
-      const responce = await axios.get(backendUrl+'/api/map/get-suggestions',{
+      const responce = await axios.get(backendUrl+"/api/map/get-suggestions",{
                
         params:{input:e.target.value},
          headers:{

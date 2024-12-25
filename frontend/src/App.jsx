@@ -12,7 +12,7 @@ import CaptionProtect from "./pages/CaptionProtect";
 import Captionlogout from "./pages/Captionlogout";
 import Riding from "./pages/Riding";
 import CaptionRiding from "./pages/CaptionRiding";
-export  const backendUrl =  "https://uber-backend-5ype.onrender.com"
+export  const backendUrl = import.meta.env.VITE_BACKENDURL
 // "https://uber-backend-5ype.onrender.com"
 const App = () => {
 
@@ -23,23 +23,23 @@ const App = () => {
           path="/start"
           element={
             <UserProtect>
-              <Start backendUrl={backendUrl} />
+              <Start   />
             </UserProtect>
           }
         />
 
         <Route path="/" element={<Home />} />
-        <Route path="/caption-signin" element={<CaptionSignUp backendUrl={backendUrl } />} />
-        <Route path="/caption-login" element={<Captionlogin backendUrl={backendUrl}/>} />
+        <Route path="/caption-signin" element={<CaptionSignUp   />} />
+        <Route path="/caption-login" element={<Captionlogin  />} />
         <Route path="/riding" element={<Riding/>} />
-        <Route path="/captionriding" element={<CaptionRiding backendUrl={backendUrl}/>} />
-        <Route path="/signin" element={<UserSignin backendUrl={backendUrl} />} />
+        <Route path="/captionriding" element={<CaptionRiding  />} />
+        <Route path="/signin" element={<UserSignin   />} />
         <Route path="/login" element={<Userlogin />} />
         <Route
           path="/captionstart"
           element={
             <CaptionProtect>
-              <CaptionStart backendUrl={backendUrl} />
+              <CaptionStart   />
             </CaptionProtect>
           }
         />
@@ -47,7 +47,7 @@ const App = () => {
           path="/userlogout"
           element={
             <UserProtect>
-              <UserLogout backendUrl={backendUrl}/>
+              <UserLogout  />
             </UserProtect>
           }
         />
@@ -55,7 +55,7 @@ const App = () => {
           path="/captionlogout"
           element={
             <CaptionProtect>
-              <Captionlogout backendUrl={backendUrl} />
+              <Captionlogout   />
             </CaptionProtect>
           }
         />

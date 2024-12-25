@@ -2,10 +2,10 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CaptionDataContext } from "../context/CaptionContext";
+ import { backendUrl } from "../App";
  
  
  
-import { backendUrl } from "../App";
 const Captionlogin = () => {
     const [email,setemail]=useState('');
     const [password,setpassword]=useState('');
@@ -19,8 +19,8 @@ const Captionlogin = () => {
             password:password,
         }
 
-        const responce= await  axios.post( backendUrl + "/api/caption/login", caption)
-        console.log(responce);
+        const responce= await  axios.post(backendUrl+"/api/caption/login", caption)
+      //  console.log(responce);
         if(responce.status==201){
           setcaption(responce.data.caption);
           // console.log(responce.data.captionToken)
@@ -28,7 +28,7 @@ const Captionlogin = () => {
            localStorage.setItem('captionToken',responce.data.captionToken)
         
            navigate('/captionstart');
-         console.log(caption);
+      //   console.log(caption);
    
         }
         

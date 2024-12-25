@@ -66,14 +66,16 @@ const createRide = async (req,res)=>{
         res.status(200).json({sucess:true,message:"ride is created in the database",ride});
      const location =  await  getCoordinatesFromAddress(pickup)
    const captions =   await getCaptionIntheRadius(location.latitude,location.longitude,2)
-        console.log(captions)
-       console.log("mylocation",location)
+      
+      // console.log("mylocation",location)
 
        ride.otp=""
 
   const captionWithuser  = await Ride.findOne({_id:ride._id}).populate("user")
-  console.log(captionWithuser)
+ // console.log("mycaptions",captions)
+  //console.log("76===================================================================================")
        captions.map(caption=>{
+        console.log(caption)
         sendMessageToSocketId(caption.socketId,{
           event:'new-ride',
           data:captionWithuser

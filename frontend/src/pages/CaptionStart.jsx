@@ -28,21 +28,21 @@ const CaptionStart = () => {
   //ham port forwoding ka use kar ka ya kar sakte hai
   
   socket.on('new-ride',(data)=>{
-   // console.log("myride",data)
+    console.log("myride",data)
     setride(data)
     setuserRidepanel(true)
-  
   })
 
    const confirmRide =  async()=>{
      
-     const responce = axios.post(backendUrl+'/api/ride/confirmride',{
+     const responce = axios.post(backendUrl+"/api/ride/confirmride",{
       rideId:ride._id,
      },{
       headers:{
       Authorization:`bearer ${localStorage.getItem('captionToken')}`
       }
      })
+     console.log("cnfride",responce)
      setuserRidepanel(false),
      setconfirmUserRide(true)
    }  
@@ -133,7 +133,7 @@ useGSAP(()=>{
              <Ridepop ride={ride} confirmRide={confirmRide} setconfirmUserRide={setconfirmUserRide} setuserRidepanel={setuserRidepanel} />
           </div>
         <div   ref={confirmuserRef}  className=" fixed flex  rounded-3xl pb-8 flex-col w-full h-screen z-10 bottom-0 p-3 translate-y-full bg-white">
-             <ConfirmRidePopUp ride={ride}  setconfirmUserRide={setconfirmUserRide} setuserRidepanel={setuserRidepanel}/>
+             <ConfirmRidePopUp ride={ride}   setconfirmUserRide={setconfirmUserRide} setuserRidepanel={setuserRidepanel}/>
           </div>
     </div>
   )
