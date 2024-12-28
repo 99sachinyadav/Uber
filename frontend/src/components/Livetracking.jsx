@@ -52,9 +52,9 @@ const LiveTracking = () => {
         const intervalId = setInterval(updatePosition, 1000); // Update every 10 seconds
 
     }, []);
-
+  console.log("myapikey",import.meta.env.VITE_API_KEY)
     return (
-        <LoadScript googleMapsApiKey={import.meta.env.API_KEY}>
+        <LoadScript googleMapsApiKey={import.meta.env.VITE_API_KEY}>
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={currentPosition}

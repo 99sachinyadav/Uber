@@ -13,7 +13,7 @@ const initializeSocket = async (server)=>{
       })
 
       io.on('connection',(socket)=>{
-        console.log(`Client is connected with id ${socket.id}` );
+      //  console.log(`Client is connected with id ${socket.id}` );
 
             
           socket.on('join', async (data)=>{
@@ -31,7 +31,7 @@ const initializeSocket = async (server)=>{
               const user=   await Caption.findByIdAndUpdate(userId,{
                   socketId:socket.id
                 })
-             console.log(user)
+         //    console.log(user)
                }
           })
 //****************************************************************************************************** */

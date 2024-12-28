@@ -72,7 +72,7 @@ const createRide = async (req,res)=>{
        ride.otp=""
 
   const captionWithuser  = await Ride.findOne({_id:ride._id}).populate("user")
- // console.log("mycaptions",captions)
+  console.log("mycaptions",captions)
   //console.log("76===================================================================================")
        captions.map(caption=>{
         console.log(caption)
@@ -171,7 +171,7 @@ function generateOTP(num) {
  const StartRide = async (req,res)=>{
   try {
     const {otp,rideId}=req.query;
-    console.log(otp,rideId)
+  //  console.log(otp,rideId)
     const caption = req.caption;
     if(!otp && !rideId){
       return res.status(402).json({sucess:false,message:"otp and rideId required"})
@@ -213,7 +213,7 @@ function generateOTP(num) {
 
          const {rideId} = req.body;
           const caption = req.caption;
-           console.log(rideId)
+        //   console.log(rideId)
          if(!rideId){
           return  res.status(403).json({sucess:false,message:"rideId not found"})
          }
